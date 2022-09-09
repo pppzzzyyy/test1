@@ -1,2 +1,5 @@
 server:
   port: 8808
+logging:
+  level:
+    root: info

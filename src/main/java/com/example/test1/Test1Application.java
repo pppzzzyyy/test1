@@ -2,6 +2,7 @@ package com.example.test1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * @author : panzhenye
@@ -11,7 +12,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Test1Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Test1Application.class, args);
+        ConfigurableApplicationContext run = SpringApplication.run(Test1Application.class, args);
+//        TestController testController = (TestController)run.getBean("testController");
+//        testController.test1();
     }
 
 }
