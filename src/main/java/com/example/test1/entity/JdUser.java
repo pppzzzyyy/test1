@@ -1,5 +1,6 @@
 package com.example.test1.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 /**
@@ -8,6 +9,7 @@ import lombok.Data;
  */
 @Data
 public class JdUser {
+    @TableId
     private String jdUserId;
     private String jdUserName;
     private String jdUserText1;
