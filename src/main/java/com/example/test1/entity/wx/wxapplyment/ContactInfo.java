@@ -1,5 +1,6 @@
 package com.example.test1.entity.wx.wxapplyment;
 
+import com.example.test1.entity.wx.aop.NotBlank;
 import com.example.test1.entity.wx.aop.WxSensitiveInformation;
 import com.example.test1.entity.wx.wxapplyment.wxenum.ContactTypeEnum;
 import com.example.test1.entity.wx.wxapplyment.wxenum.IdDocTypeEnum;
@@ -18,12 +19,14 @@ public class ContactInfo {
     /**
      * 联系人类型
      */
+    @NotBlank("联系人类型")
     private ContactTypeEnum contact_type;
 
     /**
-     * 姓名
+     * 联系人姓名
      */
     @WxSensitiveInformation
+    @NotBlank("联系人姓名")
     private String name;
 
     /**
@@ -66,5 +69,6 @@ public class ContactInfo {
      * 联系人手机号
      */
     @WxSensitiveInformation
+    @NotBlank("联系人手机号")
     private String mobile;
 }

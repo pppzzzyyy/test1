@@ -1,5 +1,6 @@
 package com.example.test1.entity.wx.wxapplyment;
 
+import com.example.test1.entity.wx.aop.NotBlank;
 import com.example.test1.entity.wx.wxapplyment.subjectInfo.*;
 import com.example.test1.entity.wx.wxapplyment.wxenum.SubjectTypeEnum;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class SubjectInfo {
     /**
      * 主体类型
      */
+    @NotBlank("主体类型")
     private SubjectTypeEnum subject_type;
 
     /**

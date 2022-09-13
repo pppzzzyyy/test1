@@ -1,5 +1,6 @@
 package com.example.test1.service.impl;
 import com.alibaba.fastjson.JSON;
+import com.example.test1.Test1Application;
 import com.example.test1.controller.TestController;
 import com.example.test1.entity.wx.WxApplyment;
 import com.example.test1.entity.wx.aop.WxUtil;
@@ -24,10 +25,10 @@ public class WxApplymentServiceImpl implements WxApplymentService {
 
     public static void main(String[] args) {
 
-        WxApplyment wxApplyment = TestController.getWxApplyment();
-
-        if (StringUtils.isNotBlank(TestController.checkParams(wxApplyment))) {
-            System.out.println("TestController.checkParams(wxApplyment) = " + TestController.checkParams(wxApplyment));
+        WxApplyment wxApplyment = Test1Application.getWxApplyment();
+        String msg = TestController.checkParams(wxApplyment);
+        if (StringUtils.isNotBlank(msg)) {
+            System.out.println("msg = " + msg);
             return;
         }
 
