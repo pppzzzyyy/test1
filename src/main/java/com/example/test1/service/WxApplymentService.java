@@ -1,6 +1,6 @@
 package com.example.test1.service;
 
-import com.example.test1.entity.wxapplyment.dto.ParamDTO;
+import com.example.test1.entity.wx.wxapplyment.ParamDTO;
 
 /**
  * @author : panzhenye

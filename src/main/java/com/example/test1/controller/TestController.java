@@ -1,7 +1,7 @@
 package com.example.test1.controller;
 
-import com.example.test1.entity.wxapplyment.dto.ParamDTO;
-import com.example.test1.entity.wxapplyment.wxenum.*;
+import com.example.test1.entity.wx.wxapplyment.ParamDTO;
+import com.example.test1.entity.wx.wxapplyment.wxenum.*;
 import com.example.test1.service.TestService;
 import com.example.test1.service.WxApplymentService;
 import org.apache.commons.lang3.RandomUtils;
