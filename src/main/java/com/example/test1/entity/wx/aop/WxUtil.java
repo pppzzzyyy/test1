@@ -2,6 +2,7 @@ package com.example.test1.entity.wx.aop;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -226,5 +227,39 @@ public class WxUtil {
         } catch (BadPaddingException | IllegalBlockSizeException e) {
             throw new BadPaddingException("解密失败");
         }
+    }
+
+    public static String checkParamsNotBlank(Object params) {
+        System.out.println("params = " + params);
+        if (params == null) {
+            return "";
+        }
+        StringBuilder msg = new StringBuilder();
+        Class<?> aClass = params.getClass();
+        Field[] declaredFields = aClass.getDeclaredFields();
+        for (Field field : declaredFields) {
+            if (field.isAnnotationPresent(NotBlank.class)) {
+                field.setAccessible(true);
+                Object o = null;
+                try {
+                    o = field.get(params);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+                String value = field.getAnnotation(NotBlank.class).value();
+                if (o instanceof String) {
+                    if (StringUtils.isBlank((String) o)) {
+                        msg.append(value).append("(").append(field.getName()).append(")").append("不能为空;\n");
+                    }
+                } else {
+                    if (o != null) {
+                        msg.append(checkParamsNotBlank(o));
+                    } else {
+                        msg.append(value).append("(").append(field.getName()).append(")").append("不能为空;\n");
+                    }
+                }
+            }
+        }
+        return msg.toString();
     }
 }
