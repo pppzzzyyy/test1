@@ -3,6 +3,7 @@ package com.example.test1.entity.wx.wxapplyment;
 import com.example.test1.entity.wx.wxapplyment.subjectInfo.*;
 import com.example.test1.entity.wx.wxapplyment.wxenum.SubjectTypeEnum;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * @date : 2022/9/8 19:26
  */
 @Data
+@Accessors(chain = true)
 public class SubjectInfo {
 
     /**

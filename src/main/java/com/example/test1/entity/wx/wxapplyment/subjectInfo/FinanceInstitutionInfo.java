@@ -2,6 +2,7 @@ package com.example.test1.entity.wx.wxapplyment.subjectInfo;
 
 import com.example.test1.entity.wx.wxapplyment.wxenum.FinanceTypeEnum;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @date : 2022/9/8 21:46
  */
 @Data
+@Accessors(chain = true)
 public class FinanceInstitutionInfo {
     /**
      * 金融机构类型

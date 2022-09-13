@@ -4,6 +4,7 @@ import com.example.test1.entity.wx.aop.WxSensitiveInformation;
 import com.example.test1.entity.wx.wxapplyment.wxenum.ContactTypeEnum;
 import com.example.test1.entity.wx.wxapplyment.wxenum.IdDocTypeEnum;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * 法人身份信息
@@ -12,6 +13,7 @@ import lombok.Data;
  * @date : 2022/9/9 15:22
  */
 @Data
+@Accessors(chain = true)
 public class IdentificationInfo {
     /**
      * 证件持有人类型

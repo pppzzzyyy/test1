@@ -1,6 +1,5 @@
 package com.example.test1.entity.wx.wxapplyment;
 
-import com.example.test1.entity.wx.wxapplyment.subjectInfo.information.SpecialOperationList;
 import com.example.test1.entity.wx.wxapplyment.wxenum.*;
 import lombok.Data;
 
@@ -41,7 +40,6 @@ public class ParamDTO {
 
     private CertTypeEnum cert_type;
 
-    private List<SpecialOperationList> special_operation_list;
 
     private FinanceTypeEnum finance_type;
     private List<String> finance_license_pics;

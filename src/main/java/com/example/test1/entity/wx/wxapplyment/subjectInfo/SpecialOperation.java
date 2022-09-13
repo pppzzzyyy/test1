@@ -1,6 +1,7 @@
 package com.example.test1.entity.wx.wxapplyment.subjectInfo;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * @date : 2022/9/8 21:43
  */
 @Data
+@Accessors(chain = true)
 public class SpecialOperation {
     /**
      * 行业类目id

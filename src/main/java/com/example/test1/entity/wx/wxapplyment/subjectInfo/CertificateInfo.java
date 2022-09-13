@@ -2,6 +2,7 @@ package com.example.test1.entity.wx.wxapplyment.subjectInfo;
 
 import com.example.test1.entity.wx.wxapplyment.wxenum.CertTypeEnum;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * 登记证书信息
@@ -10,6 +11,7 @@ import lombok.Data;
  * @date : 2022/9/8 21:29
  */
 @Data
+@Accessors(chain = true)
 public class CertificateInfo {
     /**
      * 证书类型

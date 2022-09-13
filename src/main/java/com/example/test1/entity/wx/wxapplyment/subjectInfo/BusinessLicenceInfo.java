@@ -1,6 +1,7 @@
 package com.example.test1.entity.wx.wxapplyment.subjectInfo;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * 营业执照信息
@@ -9,6 +10,7 @@ import lombok.Data;
  * @date : 2022/9/8 21:27
  */
 @Data
+@Accessors(chain = true)
 public class BusinessLicenceInfo {
     /**
      * 营业执照注册号

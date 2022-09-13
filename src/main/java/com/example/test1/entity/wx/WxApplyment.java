@@ -2,6 +2,7 @@ package com.example.test1.entity.wx;
 
 import com.example.test1.entity.wx.wxapplyment.*;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @date : 2022/9/8 15:46
  */
 @Data
+@Accessors(chain = true)
 public class WxApplyment {
     /**
      * 渠道商户号

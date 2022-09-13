@@ -3,6 +3,7 @@ package com.example.test1.entity.wx.wxapplyment;
 import com.example.test1.entity.wx.aop.WxSensitiveInformation;
 import com.example.test1.entity.wx.wxapplyment.wxenum.IdDocTypeEnum;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -13,6 +14,7 @@ import java.io.Serializable;
  * @date : 2022/9/13 10:46
  */
 @Data
+@Accessors(chain = true)
 public class UboInfo implements Serializable {
     private static final long serialVersionUID = 7418677977313058860L;
     /**
