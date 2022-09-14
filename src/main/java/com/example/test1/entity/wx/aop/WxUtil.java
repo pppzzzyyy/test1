@@ -240,6 +240,21 @@ public class WxUtil {
         for (Field field : declaredFields) {
             if (field.isAnnotationPresent(NotBlank.class)) {
                 field.setAccessible(true);
+                //本身可以为null，但本身不为null时，需要判断里面的属性
+                boolean acceptNull = field.getAnnotation(NotBlank.class).acceptNull();
+                //接受本身为null
+                if (acceptNull) {
+                    Object o = null;
+                    try {
+                        o = field.get(params);
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                    if (o == null) {
+                        continue;
+                    }
+                }
+
                 //普通不为空还是条件不为空
                 String condition = field.getAnnotation(NotBlank.class).condition();
                 if (StringUtils.isNotBlank(condition)) {

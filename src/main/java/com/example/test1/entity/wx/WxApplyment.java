@@ -45,6 +45,7 @@ public class WxApplyment {
     /**
      * 最终受益人信息列表(UBO)
      */
+    @NotBlank(value = "最终受益人信息列表(UBO)",acceptNull = true)
     private List<UboInfo> ubo_info_list;
 
     /**

@@ -24,4 +24,9 @@ public @interface NotBlank {
      */
     String[] conditionValue() default "";
 
+    /**
+     * 本身可以为null，但本身不为null时，需要判断里面的属性。
+     */
+    boolean acceptNull() default false;
+
 }
