@@ -32,6 +32,7 @@ public class ContactInfo {
     /**
      * 联系人证件类型
      */
+    @NotBlank(value = "联系人证件类型",condition = "contact_type",conditionValue = "SUPER")
     private IdDocTypeEnum contact_id_doc_type;
 
     /**

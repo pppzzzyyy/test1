@@ -13,4 +13,15 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface NotBlank {
     String value() default "";
+
+    /**
+     * 条件字段
+     */
+    String condition() default "" ;
+
+    /**
+     * 满足条件的值
+     */
+    String conditionValue() default "";
+
 }

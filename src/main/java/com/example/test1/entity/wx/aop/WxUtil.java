@@ -240,6 +240,23 @@ public class WxUtil {
         for (Field field : declaredFields) {
             if (field.isAnnotationPresent(NotBlank.class)) {
                 field.setAccessible(true);
+                //普通不为空还是条件不为空
+                String condition = field.getAnnotation(NotBlank.class).condition();
+                if (StringUtils.isNotBlank(condition)) {
+                    Object reallyValue = null;
+                    try {
+                        Field declaredField = aClass.getDeclaredField(condition);
+                        declaredField.setAccessible(true);
+                        reallyValue = declaredField.get(params);
+                    } catch (NoSuchFieldException | IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                    String conditionValue2 = field.getAnnotation(NotBlank.class).conditionValue();
+                    if (reallyValue==null || !conditionValue2.equals(reallyValue.toString())) {
+                        continue;
+                    }
+                }
+
                 Object o = null;
                 try {
                     o = field.get(params);
