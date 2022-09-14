@@ -22,6 +22,6 @@ public @interface NotBlank {
     /**
      * 满足条件的值
      */
-    String conditionValue() default "";
+    String[] conditionValue() default "";
 
 }

@@ -230,7 +230,7 @@ public class WxUtil {
     }
 
     public static String checkParamsNotBlank(Object params) {
-        System.out.println("params = " + params);
+        log.info("params = " + params);
         if (params == null) {
             return "";
         }
@@ -251,8 +251,8 @@ public class WxUtil {
                     } catch (NoSuchFieldException | IllegalAccessException e) {
                         e.printStackTrace();
                     }
-                    String conditionValue2 = field.getAnnotation(NotBlank.class).conditionValue();
-                    if (reallyValue==null || !conditionValue2.equals(reallyValue.toString())) {
+                    String[] strings = field.getAnnotation(NotBlank.class).conditionValue();
+                    if (reallyValue == null || !StringUtils.equalsAny(reallyValue.toString(), strings)) {
                         continue;
                     }
                 }
