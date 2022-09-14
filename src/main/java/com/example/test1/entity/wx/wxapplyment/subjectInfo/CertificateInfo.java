@@ -1,5 +1,6 @@
 package com.example.test1.entity.wx.wxapplyment.subjectInfo;
 
+import com.example.test1.entity.wx.aop.NotBlank;
 import com.example.test1.entity.wx.wxapplyment.wxenum.CertTypeEnum;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -16,30 +17,37 @@ public class CertificateInfo {
     /**
      * 证书类型
      */
+    @NotBlank("证书类型")
     private CertTypeEnum cert_type;
     /**
      * 证书编号
      */
+    @NotBlank("证书编号")
     private String cert_number;
     /**
      * 证书照片
      */
+    @NotBlank("证书照片")
     private String cert_copy;
     /**
      * 商户名称
      */
+    @NotBlank("商户名称")
     private String merchant_name;
     /**
      * 法人姓名
      */
+    @NotBlank("法人姓名")
     private String legal_person;
     /**
      * 注册地址
      */
+    @NotBlank("注册地址")
     private String company_address;
     /**
      * 证书有效日期
      */
+    @NotBlank("证书有效日期")
     private String cert_valid_date;
 
 }

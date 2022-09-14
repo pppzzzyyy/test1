@@ -1,5 +1,6 @@
 package com.example.test1.entity.wx.wxapplyment;
 
+import com.example.test1.entity.wx.aop.NotBlank;
 import com.example.test1.entity.wx.aop.WxSensitiveInformation;
 import com.example.test1.entity.wx.wxapplyment.wxenum.IdDocTypeEnum;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class UboInfo implements Serializable {
     /**
      * 证件类型
      */
+    @NotBlank("证件类型")
     private IdDocTypeEnum ubo_id_doc_type;
     /**
      * 证件正面照片

@@ -44,26 +44,31 @@ public class ContactInfo {
     /**
      * 联系人证件正面照片
      */
+    @NotBlank(value = "联系人证件正面照片",condition = "contact_type",conditionValue = "SUPER")
     private String contact_id_doc_copy;
 
     /**
      * 联系人证件反面照片
      */
+    @NotBlank(value = "联系人证件反面照片",condition = "contact_type",conditionValue = "SUPER")
     private String contact_id_doc_copy_back;
 
     /**
      * 联系人证件有效期开始时间
      */
+    @NotBlank(value = "联系人证件有效期开始时间",condition = "contact_type",conditionValue = "SUPER")
     private String contact_period_begin;
 
     /**
      * 联系人证件有效期结束时间
      */
+    @NotBlank(value = "联系人证件有效期结束时间",condition = "contact_type",conditionValue = "SUPER")
     private String contact_period_end;
 
     /**
      * 业务办理授权函
      */
+    @NotBlank(value = "业务办理授权函",condition = "contact_type",conditionValue = "SUPER")
     private String business_authorization_letter;
 
     /**

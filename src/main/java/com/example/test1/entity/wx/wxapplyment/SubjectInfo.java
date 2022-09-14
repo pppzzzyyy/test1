@@ -32,10 +32,12 @@ public class SubjectInfo {
     /**
      * 营业执照信息
      */
+    @NotBlank(value = "营业执照信息",condition = "subject_type",conditionValue = {"SUBJECT_TYPE_ENTERPRISE","SUBJECT_TYPE_INDIVIDUAL"})
     private BusinessLicenceInfo business_licence_info;
     /**
      * 登记证书信息
      */
+    @NotBlank(value = "登记证书信息",condition = "subject_type",conditionValue = {"SUBJECT_TYPE_GOVERNMENT", "SUBJECT_TYPE_INSTITUTIONS_CLONED", "SUBJECT_TYPE_OTHERS"})
     private CertificateInfo certificate_info;
     /**
      * 单位证明函照片
@@ -44,6 +46,7 @@ public class SubjectInfo {
     /**
      * 辅助证明材料信息
      */
+    @NotBlank(value = "辅助证明材料信息",condition = "subject_type",conditionValue = "SUBJECT_TYPE_MICRO")
     private AssistProveInfo assist_prove_info;
     /**
      * 经营许可证
@@ -53,6 +56,7 @@ public class SubjectInfo {
     /**
      * 金融机构许可证
      */
+    @NotBlank(value = "金融机构许可证", condition = "is_finance_institution", conditionValue = "true")
     private FinanceInstitutionInfo finance_institution_info;
 
 }

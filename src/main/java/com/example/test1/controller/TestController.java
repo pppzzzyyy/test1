@@ -6,6 +6,7 @@ import com.example.test1.entity.wx.aop.WxUtil;
 import com.example.test1.entity.wx.wxapplyment.ContactInfo;
 import com.example.test1.entity.wx.wxapplyment.IdentificationInfo;
 import com.example.test1.entity.wx.wxapplyment.wxenum.ContactTypeEnum;
+import com.example.test1.entity.wx.wxapplyment.wxenum.SubjectTypeEnum;
 import com.example.test1.service.TestService;
 import com.example.test1.service.WxApplymentService;
 import org.apache.commons.lang3.StringUtils;
@@ -53,9 +54,13 @@ public class TestController {
         }
         ContactInfo contact_info = wxApplyment.getContact_info();
         IdentificationInfo identification_info = wxApplyment.getIdentification_info();
-        if (contact_info.getContact_type().equals(ContactTypeEnum.LEGAL)
-                && contact_info.getName().equals(identification_info.getIdentification_name())) {
-
+        if (!contact_info.getContact_type().equals(ContactTypeEnum.LEGAL)
+                || !contact_info.getName().equals(identification_info.getIdentification_name())) {
+            returnMsg.append("联系人姓名需与法人姓名一致;\n");
+        }
+        if (wxApplyment.getSubject_info().getSubject_type().equals(SubjectTypeEnum.SUBJECT_TYPE_ENTERPRISE)
+                && StringUtils.isBlank(identification_info.getIdentification_address())){
+            returnMsg.append("法人证件居住地址为空;\n");
         }
         return returnMsg.toString();
     }
