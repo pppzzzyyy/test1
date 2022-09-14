@@ -29,7 +29,6 @@ public class CheckParamsAop {
         for (Object arg : args) {
             msg.append(WxUtil.checkParamsNotBlank(arg));
         }
-        System.out.println("msg = " + msg);
         if (StringUtils.isNotBlank(msg)) {
             return msg.toString();
         } else {

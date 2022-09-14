@@ -279,27 +279,25 @@ public class WxUtil {
                     e.printStackTrace();
                 }
                 String value = field.getAnnotation(NotBlank.class).value();
+
                 if (o instanceof String) {
-                    if (StringUtils.isBlank((String) o)) {
-                        msg.append(value).append("(").append(field.getName()).append(")").append("不能为空;\n");
+                    if (!StringUtils.isBlank((String) o)) {
+                        continue;
                     }
                 } else if (o instanceof List){
                     for (Object o1 : (List) o) {
-                        if (o1 instanceof String) {
-                            if (StringUtils.isBlank((String) o1)) {
-                                msg.append(value).append("(").append(field.getName()).append(")").append("不能为空;\n");
-                            }
-                        }else {
+                        if (!(o1 instanceof String)) {
                             msg.append(checkParamsNotBlank(o1));
                         }
                     }
+                    continue;
                 } else {
                     if (o != null) {
                         msg.append(checkParamsNotBlank(o));
-                    } else {
-                        msg.append(value).append("(").append(field.getName()).append(")").append("不能为空;\n");
+                        continue;
                     }
                 }
+                msg.append(value).append("(").append(field.getName()).append(")").append("不能为空;\n");
             }
         }
         return msg.toString();

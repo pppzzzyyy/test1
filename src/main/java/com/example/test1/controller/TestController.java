@@ -32,12 +32,10 @@ public class TestController {
     public String test1(WxApplyment wxApplyment) {
         String msg = checkParams(wxApplyment);
         if (StringUtils.isNotBlank(msg)) {
-            System.out.println(msg);
-            return "success";
+            return msg;
         }
 
         wxApplymentService.applyment(wxApplyment);
-
         return "success";
     }
 
