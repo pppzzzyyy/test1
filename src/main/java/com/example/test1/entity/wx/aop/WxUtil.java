@@ -283,6 +283,16 @@ public class WxUtil {
                     if (StringUtils.isBlank((String) o)) {
                         msg.append(value).append("(").append(field.getName()).append(")").append("不能为空;\n");
                     }
+                } else if (o instanceof List){
+                    for (Object o1 : (List) o) {
+                        if (o1 instanceof String) {
+                            if (StringUtils.isBlank((String) o1)) {
+                                msg.append(value).append("(").append(field.getName()).append(")").append("不能为空;\n");
+                            }
+                        }else {
+                            msg.append(checkParamsNotBlank(o1));
+                        }
+                    }
                 } else {
                     if (o != null) {
                         msg.append(checkParamsNotBlank(o));
