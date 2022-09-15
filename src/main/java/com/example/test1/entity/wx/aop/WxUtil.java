@@ -244,12 +244,12 @@ public class WxUtil {
                 boolean acceptNull = field.getAnnotation(NotBlank.class).acceptNull();
                 //接受本身为null
                 Object o = null;
+                try {
+                    o = field.get(params);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
                 if (acceptNull) {
-                    try {
-                        o = field.get(params);
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
                     if (o == null) {
                         continue;
                     }
