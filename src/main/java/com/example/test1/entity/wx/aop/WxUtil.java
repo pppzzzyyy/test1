@@ -291,7 +291,7 @@ public class WxUtil {
                         continue;
                     }
                 }
-                msg.append(value).append("(").append(field.getName()).append(")").append("不能为空;\n");
+                msg.append(aClass.getSimpleName()+".").append(field.getName()).append("(").append(value).append(")").append("不能为空;\n");
             }
         }
         return msg.toString();
