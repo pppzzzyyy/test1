@@ -8,6 +8,8 @@ import java.util.HashMap;
  */
 public class Constant {
     public static HashMap<String, Integer> b = new HashMap<String, Integer>();
+//    public static ConcurrentHashMap<String, Integer> b = new ConcurrentHashMap<String, Integer>();
+
     static {
         b.put("a",0);
     }

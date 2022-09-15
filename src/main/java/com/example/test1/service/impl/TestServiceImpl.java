@@ -18,13 +18,25 @@ public class TestServiceImpl implements TestService {
     @Override
     @Async
     public void asyncTest() {
-        Integer inta = Constant.b.get("a");
-        log.info("inta = " + inta);
-        if (inta <= 0) {
-            Constant.b.put("a", Constant.b.get("a") + 100);
-        } else {
-            Constant.b.put("a", Constant.b.get("a") - 100);
+        log.info("inta = " + Constant.b.get("a"));
+        synchronized (this) {
+            if (Constant.b.get("a") <= 0) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Constant.b.computeIfPresent("a",(key,value)->value+100);
+            } else {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Constant.b.computeIfPresent("a",(key,value)->value-100);
+            }
         }
+//        log.info("inta = " + Constant.b.get("a"));
     }
 
 }
