@@ -243,8 +243,8 @@ public class WxUtil {
                 //本身可以为null，但本身不为null时，需要判断里面的属性
                 boolean acceptNull = field.getAnnotation(NotBlank.class).acceptNull();
                 //接受本身为null
+                Object o = null;
                 if (acceptNull) {
-                    Object o = null;
                     try {
                         o = field.get(params);
                     } catch (IllegalAccessException e) {
@@ -272,12 +272,6 @@ public class WxUtil {
                     }
                 }
 
-                Object o = null;
-                try {
-                    o = field.get(params);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
                 String value = field.getAnnotation(NotBlank.class).value();
 
                 if (o instanceof String) {
