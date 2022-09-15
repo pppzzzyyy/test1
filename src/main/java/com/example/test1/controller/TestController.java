@@ -7,7 +7,6 @@ import com.example.test1.entity.wx.wxapplyment.ContactInfo;
 import com.example.test1.entity.wx.wxapplyment.IdentificationInfo;
 import com.example.test1.entity.wx.wxapplyment.wxenum.ContactTypeEnum;
 import com.example.test1.entity.wx.wxapplyment.wxenum.SubjectTypeEnum;
-import com.example.test1.service.TestService;
 import com.example.test1.service.WxApplymentService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class TestController {
-
-    @Autowired
-    private TestService testService;
 
     @Autowired
     private WxApplymentService wxApplymentService;
