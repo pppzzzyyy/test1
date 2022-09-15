@@ -5,4 +5,6 @@ package com.example.test1.service;
  * @date : 2022/9/7 18:14
  */
 public interface TestService {
+    void asyncTest();
+
 }
