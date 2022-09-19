@@ -28,12 +28,16 @@ public class TestServiceImpl implements TestService {
     @Override
     @Async
     public void asyncTest() {
+        int i = 1;
         while (!redisTemplate.opsForValue().setIfAbsent("a","a", Duration.ofSeconds(1))) {
             log.info(Thread.currentThread().getName() + "没拿到锁");
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            }
+            if (i++>3){
+                return;
             }
         }
         log.info(Thread.currentThread().getName() + "拿到锁");
