@@ -16,6 +16,7 @@ import java.util.List;
  */
 @SpringBootApplication
 @MapperScan(basePackages = "com.example.test1.mapper")
+@EnableCaching
 public class Test1Application {
 
     public static void main(String[] args) {
