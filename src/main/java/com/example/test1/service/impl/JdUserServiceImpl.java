@@ -39,6 +39,7 @@ public class JdUserServiceImpl extends ServiceImpl<JdUserMapper, JdUser> impleme
     @Override
     @CacheEvict(key = "#jdUser.jdUserId")
     public Boolean myUpdateById(JdUser jdUser) {
+        log.info("修改id:{}",jdUser.getJdUserId());
         return updateById(jdUser);
     }
 }
