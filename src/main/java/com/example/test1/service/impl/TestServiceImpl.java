@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author : panzhenye
@@ -16,16 +16,22 @@ import java.util.HashMap;
 @Slf4j
 public class TestServiceImpl implements TestService {
     public static int a = 0;
-//    public static ConcurrentHashMap<String,String> map = new ConcurrentHashMap<>();
-    public static HashMap<String,String> map = new HashMap<>();
+    public static ConcurrentHashMap<String,String> map = new ConcurrentHashMap<>();
+//    public static HashMap<String,String> map = new HashMap<>();
 
 
     @Override
     @Async
     public void asyncTest() {
         while (map.putIfAbsent("a", "a") != null) {
-
+            log.info(Thread.currentThread().getName()+"没拿到锁");
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+        log.info(Thread.currentThread().getName()+"拿到锁");
 //        synchronized (TestServiceImpl.class) {
             if (Constant.b.get("a") <= 0) {
                 try {
