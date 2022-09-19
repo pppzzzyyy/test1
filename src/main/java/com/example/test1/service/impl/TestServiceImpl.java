@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+
 /**
  * @author : panzhenye
  * @date : 2022/9/7 18:14
@@ -14,29 +16,39 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class TestServiceImpl implements TestService {
     public static int a = 0;
+//    public static ConcurrentHashMap<String,String> map = new ConcurrentHashMap<>();
+    public static HashMap<String,String> map = new HashMap<>();
+
 
     @Override
     @Async
     public void asyncTest() {
-        log.info("inta = " + Constant.b.get("a"));
-        synchronized (this) {
+        while (map.putIfAbsent("a", "a") != null) {
+
+        }
+//        synchronized (TestServiceImpl.class) {
             if (Constant.b.get("a") <= 0) {
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Constant.b.computeIfPresent("a",(key,value)->value+100);
+                Constant.b.computeIfPresent("a", (key, value) -> value + 100);
             } else {
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Constant.b.computeIfPresent("a",(key,value)->value-100);
+                Constant.b.computeIfPresent("a", (key, value) -> value - 100);
             }
-        }
-//        log.info("inta = " + Constant.b.get("a"));
+//            if (true) {
+//                throw new RuntimeException("2");
+//            }
+//        }
+            map.remove("a");
+
+        log.info("inta = " + Constant.b.get("a"));
     }
 
 }

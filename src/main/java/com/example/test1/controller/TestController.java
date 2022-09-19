@@ -23,7 +23,7 @@ public class TestController {
     public String test1() {
         int i = 0;
         Constant.b.put("a", 0);
-        while (i < 500) {
+        while (i < 4) {
             i++;
             testService.asyncTest();
         }
