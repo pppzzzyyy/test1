@@ -52,9 +52,8 @@ public class TestServiceImpl implements TestService {
 //                throw new RuntimeException("2");
 //            }
 //        }
-            map.remove("a");
-
         log.info("inta = " + Constant.b.get("a"));
+        map.remove("a");
     }
 
 }
