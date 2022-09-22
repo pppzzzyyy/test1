@@ -1,8 +1,11 @@
 package com.example.test1.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.example.test1.entity.JdUser;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author : panzhenye
@@ -10,4 +13,11 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface JdUserMapper extends BaseMapper<JdUser> {
+    default List<JdUser> getListByName(String name){
+        return selectList(Wrappers.lambdaQuery(JdUser.class)
+        .select(JdUser::getJdUserId,JdUser::getJdUserName)
+//        .eq(StringUtils.isNotBlank(name),JdUser::getJdUserName,name));
+                .eq(JdUser::getJdUserName,name));
+
+    }
 }

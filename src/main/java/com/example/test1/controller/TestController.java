@@ -35,4 +35,14 @@ public class TestController {
         System.out.println("jdUsers = " + jdUsers);
         return "success";
     }
+
+    public String test2(){
+        List<JdUser> listByName = jdUserMapper.getListByName("1");
+        System.out.println("listByName = " + listByName);
+        List<JdUser> listByName1 = jdUserMapper.getListByName("");
+        System.out.println("listByName1 = " + listByName1);
+        List<JdUser> listByName2 = jdUserMapper.getListByName(null);
+        System.out.println("listByName2 = " + listByName2);
+        return "success";
+    }
 }
