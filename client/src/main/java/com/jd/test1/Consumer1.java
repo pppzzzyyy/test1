@@ -1,7 +1,8 @@
 package com.jd.test1;
 
-import com.jd.jsf.gd.config.annotation.Consumer;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @author : panzhenye
@@ -9,8 +10,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class Consumer1 {
-    
-    @Consumer(alias = "test1",url = "127.0.0.1:220001")
+
+    @Resource
     private TestJsfApi testJsfApi;
 
     public void test(String a) {

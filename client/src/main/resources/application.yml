@@ -1,8 +1,2 @@
 server:
   port: 8081
-spring:
-  jsf:
-    packages: com.jd.test1
-    registry:
-      id: jsfregistry
-      register: false
