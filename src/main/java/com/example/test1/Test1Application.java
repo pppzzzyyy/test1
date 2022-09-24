@@ -17,7 +17,7 @@ public class Test1Application {
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(Test1Application.class, args);
         TestController testController = run.getBean("testController", TestController.class);
-        testController.test2();
+        testController.test3();
 
 
     }

@@ -20,4 +20,10 @@ public interface JdUserMapper extends BaseMapper<JdUser> {
                 .eq(JdUser::getJdUserName,name));
 
     }
+
+    default JdUser getListById(String id){
+        return selectOne(Wrappers.lambdaQuery(JdUser.class)
+                .eq(JdUser::getJdUserId,id));
+
+    }
 }

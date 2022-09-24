@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author : panzhenye
@@ -43,6 +44,12 @@ public class TestController {
         System.out.println("listByName1 = " + listByName1);
         List<JdUser> listByName2 = jdUserMapper.getListByName(null);
         System.out.println("listByName2 = " + listByName2);
+        return "success";
+    }
+
+    public String test3(){
+        JdUser listByName = jdUserMapper.getListById("1");
+        System.out.println("listByName = " + Optional.ofNullable(listByName).orElse(new JdUser()).getJdUserId());
         return "success";
     }
 }
