@@ -1,11 +1,13 @@
 package com.example.test1.controller;
 
 import com.example.test1.service.TestService;
-import com.example.test1.utils.Constant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author : panzhenye
@@ -20,13 +22,19 @@ public class TestController {
     private TestService testService;
 
     @RequestMapping("test1")
-    public String test1() {
-        int i = 0;
-        Constant.b.put("a", 0);
-        while (i < 4) {
-            i++;
-            testService.asyncTest();
-        }
-        return null;
+    public String test1() throws Exception {
+        Future<String> stringFuture = testService.asyncTest();
+        log.info("模拟业务2");
+        TimeUnit.SECONDS.sleep(2);
+        String s = stringFuture.get();
+        return s;
+    }
+
+    public String test2() throws Exception {
+        String stringFuture = testService.asyncTest2();
+        log.info("模拟业务2");
+        TimeUnit.SECONDS.sleep(2);
+        String s = stringFuture;
+        return s;
     }
 }

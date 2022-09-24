@@ -14,10 +14,11 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 public class Test1Application {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         ConfigurableApplicationContext run = SpringApplication.run(Test1Application.class, args);
         TestController testController = (TestController) run.getBean("testController");
-        testController.test1();
+        String s = testController.test1();
+        System.out.println("s = " + s);
     }
 
 }
