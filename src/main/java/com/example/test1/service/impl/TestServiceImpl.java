@@ -27,6 +27,9 @@ public class TestServiceImpl implements TestService {
     public Future<String> asyncTest() throws InterruptedException {
         log.info("模拟业务");
         TimeUnit.SECONDS.sleep(2);
+        if (true) {
+            throw new RuntimeException("模拟异常");
+        }
         return new AsyncResult<>("success");
     }
 
@@ -35,5 +38,15 @@ public class TestServiceImpl implements TestService {
         log.info("模拟业务");
         TimeUnit.SECONDS.sleep(2);
         return "success";
+    }
+
+    @Override
+    @Async
+    public void asyncTestException() throws InterruptedException {
+        log.info("模拟业务");
+        if (true) {
+            throw new RuntimeException("模拟异常");
+        }
+        TimeUnit.SECONDS.sleep(2);
     }
 }

@@ -10,4 +10,6 @@ public interface TestService {
     Future<String> asyncTest() throws InterruptedException;
 
     String asyncTest2() throws InterruptedException;
+
+    void asyncTestException() throws InterruptedException;
 }
