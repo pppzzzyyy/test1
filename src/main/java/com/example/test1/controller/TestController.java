@@ -52,4 +52,15 @@ public class TestController {
         System.out.println("listByName = " + Optional.ofNullable(listByName).orElse(new JdUser()).getJdUserId());
         return "success";
     }
+
+    public String test4() throws InterruptedException {
+        JdUser jdUser = new JdUser();
+        jdUser.setJdUserId("10");
+        jdUser.setJdUserText1("0");
+        for (int i = 0; i < 2; i++) {
+            testService.test41(jdUser);
+        }
+
+        return "success";
+    }
 }
