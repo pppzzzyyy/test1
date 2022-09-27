@@ -4,14 +4,13 @@ import com.example.test1.controller.TestController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
  * @author : panzhenye
  * @date : 2022/9/7 18:14
  */
 @SpringBootApplication
-@EnableAsync
+//@EnableAsync
 public class Test1Application {
 
     public static void main(String[] args) throws Exception {

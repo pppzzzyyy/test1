@@ -28,7 +28,7 @@ public class TestServiceImpl implements TestService {
         log.info("模拟业务");
         TimeUnit.SECONDS.sleep(2);
         if (true) {
-            throw new RuntimeException("模拟异常");
+//            throw new RuntimeException("模拟异常");
         }
         return new AsyncResult<>("success");
     }
