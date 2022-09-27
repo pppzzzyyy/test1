@@ -92,12 +92,12 @@ public class WxUtil {
                 doEncryptOrDecrypt(o, o.getClass(), type);
             }
         }
-        //父类
-        Class<?> superclass = aClass.getSuperclass();
-        if (superclass != null && aClass.getPackage().getName().equals(superclass.getPackage().getName())) {
-            log.debug("加解密{}父类{}里面的字段", aClass.getSimpleName(), superclass.getSimpleName());
-            doEncryptOrDecrypt(t, superclass, type);
-        }
+//        //父类
+//        Class<?> superclass = aClass.getSuperclass();
+//        if (superclass != null && aClass.getPackage().getName().equals(superclass.getPackage().getName())) {
+//            log.debug("加解密{}父类{}里面的字段", aClass.getSimpleName(), superclass.getSimpleName());
+//            doEncryptOrDecrypt(t, superclass, type);
+//        }
     }
 
     private <T> void doEncrypt(T t, Field declaredField, String str) {
