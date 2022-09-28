@@ -1,6 +1,7 @@
 package com.jd.test1;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,4 +18,7 @@ public interface TestApi {
 
     @PostMapping("test1")
     String test1(@RequestBody JdUser a);
+
+    @GetMapping("test2")
+    String test2(@SpringQueryMap JdUser a);
 }

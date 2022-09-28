@@ -25,4 +25,11 @@ public class Consumer1 {
         String test = testApi.test1(jdUser);
         System.out.println("test = " + test);
     }
+
+    public void test2(String a) {
+        JdUser jdUser = new JdUser();
+        jdUser.setJdUserId(a);
+        String test = testApi.test2(jdUser);
+        System.out.println("test = " + test);
+    }
 }
