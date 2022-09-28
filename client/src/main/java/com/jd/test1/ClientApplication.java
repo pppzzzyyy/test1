@@ -19,7 +19,7 @@ public class ClientApplication {
         Consumer1 bean = run.getBean(Consumer1.class);
         while (true) {
             TimeUnit.SECONDS.sleep(1L);
-            bean.test("123");
+            bean.test1("123");
         }
     }
 }

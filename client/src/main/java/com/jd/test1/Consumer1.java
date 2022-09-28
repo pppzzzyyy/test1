@@ -12,10 +12,17 @@ import javax.annotation.Resource;
 public class Consumer1 {
 
     @Resource
-    private TestJsfApi testJsfApi;
+    private TestApi testApi;
 
     public void test(String a) {
-        String test = testJsfApi.test(a);
+        String test = testApi.test(a);
+        System.out.println("test = " + test);
+    }
+
+    public void test1(String a) {
+        JdUser jdUser = new JdUser();
+        jdUser.setJdUserId(a);
+        String test = testApi.test1(jdUser);
         System.out.println("test = " + test);
     }
 }
