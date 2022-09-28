@@ -14,4 +14,7 @@ eureka:
       defaultZone: http://localhost:10086/eureka
   server:
     enable-self-preservation: false
-    eviction-interval-timer-in-ms: 600000
+#    eviction-interval-timer-in-ms: 600000
+logging:
+  level:
+    com.netflix: warn
