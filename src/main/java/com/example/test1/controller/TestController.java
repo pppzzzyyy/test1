@@ -23,9 +23,10 @@ public class TestController {
     public String test1() {
         int i = 0;
         Constant.b.put("a", 0);
-        while (i < 4) {
+        while (i < 20) {
             i++;
             testService.asyncTest();
+            System.out.println("\"a\" = " + "a");
         }
         return null;
     }
