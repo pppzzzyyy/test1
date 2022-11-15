@@ -19,7 +19,7 @@ public class Test1Application {
     public static void main(String[] args) throws InterruptedException {
         ConfigurableApplicationContext run = SpringApplication.run(Test1Application.class, args);
         TestController testController = run.getBean("testController", TestController.class);
-        testController.test4();
+        testController.test5();
 
 
     }

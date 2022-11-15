@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.test1.mapper.JdUserMapper">
+
+    <update id="testSet">
+        update jd_user
+        <set>
+            <if test="jdUserName != null">
+                jd_user_name = #{jdUserName},
+            </if>
+            <if test="jdUserText1 != null">
+                jd_user_text1 = #{jdUserText1},
+            </if>
+            <!-- jd_user_id=#{jdUserId} -->
+        </set>
+        where jd_user_id = #{jdUserId}
+    </update>
+</mapper>

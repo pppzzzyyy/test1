@@ -26,4 +26,6 @@ public interface JdUserMapper extends BaseMapper<JdUser> {
                 .eq(JdUser::getJdUserId,id));
 
     }
+
+    void testSet(JdUser jdUser);
 }

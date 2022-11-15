@@ -63,4 +63,12 @@ public class TestController {
 
         return "success";
     }
+
+    public void test5() {
+        JdUser jdUser = new JdUser();
+        jdUser.setJdUserName("11");
+//        jdUser.setJdUserText1("11");
+        jdUser.setJdUserId("10");
+        jdUserMapper.testSet(jdUser);
+    }
 }
