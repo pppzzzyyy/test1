@@ -3,8 +3,10 @@ package com.example.test1.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.example.test1.entity.JdUser;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,4 +30,11 @@ public interface JdUserMapper extends BaseMapper<JdUser> {
     }
 
     void testSet(JdUser jdUser);
+
+    void saveBatch(@Param("jdUsers") ArrayList<JdUser> jdUsers);
+
+    void updateBatch(@Param("jdUsers") ArrayList<JdUser> jdUsers);
+
+    void updateNotIn();
+
 }

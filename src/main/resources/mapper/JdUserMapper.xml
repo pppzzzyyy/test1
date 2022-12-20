@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.test1.mapper.JdUserMapper">
+    <insert id="saveBatch">
+        insert into jd_user (jd_user_id, jd_user_name, jd_user_text1, jd_user_text2, jd_user_text3)
+        values
+        <foreach collection="jdUsers" item="jdUser" separator=",">
+            (#{jdUser.jdUserId},#{jdUser.jdUserName},#{jdUser.jdUserText1},#{jdUser.jdUserText2},#{jdUser.jdUserText3})
+        </foreach>
+    </insert>
 
     <update id="testSet">
         update jd_user
@@ -14,5 +21,21 @@
             <!-- jd_user_id=#{jdUserId} -->
         </set>
         where jd_user_id = #{jdUserId}
+    </update>
+    <update id="updateBatch">
+        update jd_user
+        set jd_user_name = case jd_user_id
+        <foreach collection="jdUsers" item="jdUser" close="end">
+            when #{jdUser.jdUserId} then #{jdUser.jdUserName}
+        </foreach>
+        where jd_user_id in
+        <foreach collection="jdUsers" item="jdUser" open="(" separator="," close=")">
+            #{jdUser.jdUserId}
+        </foreach>
+    </update>
+    <update id="updateNotIn">
+        update jd_user
+        set jd_user_name = 'ceshi'
+        where jd_user_id not in (1,4,9)
     </update>
 </mapper>

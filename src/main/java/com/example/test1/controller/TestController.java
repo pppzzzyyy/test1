@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -70,5 +73,43 @@ public class TestController {
 //        jdUser.setJdUserText1("11");
         jdUser.setJdUserId("10");
         jdUserMapper.testSet(jdUser);
+    }
+    //大数据添加测试
+    public void test6(){
+        ArrayList<JdUser> jdUsers = new ArrayList<>();
+        for (int i=20001 ; i<=30000;i++) {
+            JdUser jdUser = new JdUser();
+            jdUser.setJdUserId(""+i);
+            jdUser.setJdUserName(""+i);
+            jdUser.setJdUserText1(""+i);
+            jdUser.setJdUserText2(""+i);
+            jdUser.setJdUserText3(""+i);
+            jdUsers.add(jdUser);
+        }
+        LocalDateTime start = LocalDateTime.now();
+        jdUserMapper.saveBatch(jdUsers);
+        long between = ChronoUnit.SECONDS.between(start, LocalDateTime.now());
+        System.out.println("between = " + between);
+    }
+    //大数据修改测试
+    public void test7(){
+        ArrayList<JdUser> jdUsers = new ArrayList<>();
+        for (int i=10001 ; i<=20000;i++) {
+            JdUser jdUser = new JdUser();
+            jdUser.setJdUserId(""+i);
+            jdUser.setJdUserName("q"+i);
+            jdUsers.add(jdUser);
+        }
+        LocalDateTime start = LocalDateTime.now();
+        jdUserMapper.updateBatch(jdUsers);
+        long between = ChronoUnit.SECONDS.between(start, LocalDateTime.now());
+        System.out.println("between = " + between);
+    }
+
+    public void test8(){
+        LocalDateTime start = LocalDateTime.now();
+        jdUserMapper.updateNotIn();
+        long between = ChronoUnit.SECONDS.between(start, LocalDateTime.now());
+        System.out.println("between = " + between);
     }
 }
