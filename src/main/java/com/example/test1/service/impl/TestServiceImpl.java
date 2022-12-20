@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author : panzhenye
  * @date : 2022/9/7 18:14
@@ -46,5 +49,14 @@ public class TestServiceImpl implements TestService {
                     .set(JdUser::getJdUserText1, (Integer.parseInt(jdUser.getJdUserText1()) + 1) + "")
                     .eq(JdUser::getJdUserId, jdUser.getJdUserId()));
 //        }
+    }
+
+    @Override
+    public void updateBatch(ArrayList<JdUser> jdUsers) {
+        System.out.println("jdUsers.size() = " + jdUsers.size());
+        for (int i = 0; i <= (jdUsers.size()-1)/10000; i++) {
+            List<JdUser> jdUsers1 = jdUsers.subList(i * 10000, (i + 1) * 10000);
+            System.out.println("jdUsers1.size() = " + jdUsers1.size());
+        }
     }
 }

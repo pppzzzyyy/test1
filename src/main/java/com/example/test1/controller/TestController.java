@@ -94,14 +94,14 @@ public class TestController {
     //大数据修改测试
     public void test7(){
         ArrayList<JdUser> jdUsers = new ArrayList<>();
-        for (int i=10001 ; i<=20000;i++) {
+        for (int i=10001 ; i<=30000;i++) {
             JdUser jdUser = new JdUser();
             jdUser.setJdUserId(""+i);
             jdUser.setJdUserName("q"+i);
             jdUsers.add(jdUser);
         }
         LocalDateTime start = LocalDateTime.now();
-        jdUserMapper.updateBatch(jdUsers);
+        testService.updateBatch(jdUsers);
         long between = ChronoUnit.SECONDS.between(start, LocalDateTime.now());
         System.out.println("between = " + between);
     }
