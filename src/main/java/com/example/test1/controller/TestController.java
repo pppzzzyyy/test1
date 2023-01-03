@@ -112,4 +112,13 @@ public class TestController {
         long between = ChronoUnit.SECONDS.between(start, LocalDateTime.now());
         System.out.println("between = " + between);
     }
+
+    /**
+     * updateById没有id
+     */
+    public void test9(){
+        JdUser jdUser = new JdUser();
+        jdUser.setJdUserName("111111");
+        jdUserMapper.updateById(jdUser);
+    }
 }
